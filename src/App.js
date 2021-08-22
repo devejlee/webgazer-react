@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import One from "./components/one";
 import Two from "./components/two";
 import Three from "./components/three";
@@ -22,10 +22,6 @@ function App() {
   const handleLeftThree = () => {
     setShow('two')
   }
-
-  useEffect(() => {
-
-  }, [show])
 
   return (
     <>

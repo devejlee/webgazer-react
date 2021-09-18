@@ -7,20 +7,9 @@ import './App.scss';
 function App() {
   const [show, setShow] = useState('one')
 
-  const handleRightOne = () => {
-    setShow('two')
-  }
-
-  const handleRightTwo = () => {
-    setShow('three')
-  }
-
-  const handleLeftTwo = () => {
-    setShow('one')
-  }
-
-  const handleLeftThree = () => {
-    setShow('two')
+  // clean this up you idiot
+  const handleClick = (link) => {
+    setShow(link)
   }
 
   return (
@@ -29,7 +18,7 @@ function App() {
         <>
           <div className="btn-wrap">
             <button className="button">LEFT</button>
-            <button className="button" onClick={handleRightOne}>RIGHT</button>
+            <button className="button" onClick={() => handleClick('two')}>RIGHT</button>
           </div>
           <One />
         </>
@@ -37,8 +26,8 @@ function App() {
       {show === 'two' && (
         <>
           <div className="btn-wrap">
-            <button className="button" onClick={handleLeftTwo}>LEFT</button>
-            <button className="button" onClick={handleRightTwo}>RIGHT</button>
+            <button className="button" onClick={() => handleClick('one')}>LEFT</button>
+            <button className="button" onClick={() => handleClick('three')}>RIGHT</button>
           </div>
           <Two />
         </>
@@ -46,7 +35,7 @@ function App() {
       {show === 'three' && (
         <>
           <div className="btn-wrap">
-            <button className="button" onClick={handleLeftThree}>LEFT</button>
+            <button className="button" onClick={() => handleClick('two')}>LEFT</button>
             <button className="button">RIGHT</button>
           </div>
           <Three />
